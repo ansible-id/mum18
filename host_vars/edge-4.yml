@@ -12,5 +12,9 @@ bgp:
   asn: 65500
   peers:
     - name: edge-3
+      address: 3.3.3.3
       asn: 65500
+      af:
+        - vpnv4
+        - ip
 
