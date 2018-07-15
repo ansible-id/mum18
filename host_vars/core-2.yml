@@ -1,14 +1,10 @@
 ---
 
 ip:
+  - name: loop0
+    address: 1.0.0.2/32
   - name: ether2
-    address: 10.2.2.221/24
+    address: 10.24.0.2/24
   - name: ether3
-    address: 10.2.1.211/24
-
-ospf:
-  areas:
-    - id: backbone
-      networks:
-        - 0.0.0.0/0
+    address: 10.23.0.2/24
 
