@@ -19,6 +19,11 @@ bgp:
       af:
         - vpnv4
         - ip
+  vrf:
+    - name: site-a
+      redists:
+        ospf: yes
+        connected: yes
 
 vrf:
   - name: site-a
@@ -33,7 +38,9 @@ vrf:
 ospf:
   vrf:
     instances:
-      - site-a
+      - name: site-a
+        redists:
+          bgp: as-type-1
     areas:
       - name: site-a-area
         instance: site-a
