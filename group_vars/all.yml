@@ -1,0 +1,10 @@
+---
+
+ospf:
+  areas:
+    - id: backbone
+      networks:
+        - 0.0.0.0/0
+      passives:
+        - ether1
+
