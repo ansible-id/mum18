@@ -1,6 +1,11 @@
 {% for area in ospf['areas'] %}
-/routing ospf network
 
+/routing ospf interface
+{% for interface in area['passives'] %}
+add interface={{ interface }} passive=yes
+{% endfor %}
+
+/routing ospf network
 {% for network in area['networks'] %}
 add area={{ area['id'] }} network={{ network }} comment="ANSIBLE IS AWESOME"
 {% endfor %}
