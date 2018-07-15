@@ -1,0 +1,7 @@
+/mpls ldp
+set enabled=yes
+
+{% for interface in mpls['ldp']['interfaces'] %}
+interface add interface={{ interface }} disabled=no
+{% endfor %}
+
