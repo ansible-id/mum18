@@ -1,4 +1,4 @@
-/ip routing vrf
+/ip route vrf
 
 {% for v in vrf %}
 add export-route-targets={{ v['export'] | join(',') }} \
