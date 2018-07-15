@@ -22,6 +22,7 @@ def generate_hosts():
 
     for l in leases:
         name = l.hostname
+        name = name.lower()
         group = get_group(name, '-')
         active = l.active and l.valid
         ip = l.ip
@@ -30,7 +31,7 @@ def generate_hosts():
             groups[group] = dict(hosts=[])
         groups[group]['hosts'].append(name)
 
-        hosts[l.hostname] = dict(ansible_host=ip, active=active, group=group)
+        hosts[name] = dict(ansible_host=ip, active=active, group=group)
 
     return {
             'hosts': hosts,
