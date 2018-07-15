@@ -7,6 +7,8 @@ ip:
     address: 10.2.1.211/24
 
 ospf:
-  area: backbone
-    - network: 0.0.0.0/0
+  areas:
+    - id: backbone
+      networks:
+        - 0.0.0.0/0
 
