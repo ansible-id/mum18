@@ -1,5 +1,5 @@
 /ip address
 {% for i in ip %}
-add address={{ i['address'] }} interface={{ i['name'] }} network={{ i['address'] | ipaddr('network')}} comment="ANSIBLE IS AWESOME!!" disabled=no
+add address={{ i['address'] }} interface={{ i['name'] }} comment="ANSIBLE IS AWESOME!!" disabled=no
 {% endfor %}
 
