@@ -4,11 +4,11 @@
   connection: local
   vars:
     user: admin
-    output: ./outputs/{{ inventory_hostname }}
+    output: ../outputs/{{ inventory_hostname }}
   tasks:
     - name: generate ldp
       template:
-        src: ./templates/ldp.auto.rsc.j2
+        src: ../templates/ldp.auto.rsc.j2
         dest: "{{ output }}/ldp.auto.rsc"
       notify: upload ldp
 

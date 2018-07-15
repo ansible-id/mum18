@@ -1,0 +1,17 @@
+---
+- hosts: edge
+  gather_facts: no
+  connection: local
+  vars:
+    user: admin
+    output: ../outputs/{{ inventory_hostname }}
+  tasks:
+    - name: generate bgp
+      template:
+        src: ../templates/bgp.auto.rsc.j2
+        dest: "{{ output }}/bgp.auto.rsc"
+
+  handlers:
+    - name: upload bgp
+      shell: "curl -T {{ output }}/bgp.auto.rsc ftp://{{ user }}@{{ansible_host}}"
+

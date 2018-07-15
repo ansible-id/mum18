@@ -4,11 +4,11 @@
   connection: local
   vars:
     user: admin
-    output: ./outputs/{{ inventory_hostname }}
+    output: ../outputs/{{ inventory_hostname }}
   tasks:
     - name: generate ospf
       template:
-        src: ./templates/ospf.auto.rsc.j2
+        src: ../templates/ospf.auto.rsc.j2
         dest: "{{ output }}/ospf.auto.rsc"
       notify: upload ospf
 

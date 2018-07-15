@@ -1,0 +1,18 @@
+---
+- hosts: all
+  gather_facts: no
+  connection: local
+  vars:
+    user: admin
+    output: ../outputs/{{ inventory_hostname }}
+  tasks:
+    - name: generate loopback
+      template:
+        src: ../templates/loopback.auto.rsc.j2
+        dest: "{{ output }}/loopback.auto.rsc"
+      notify: upload loopback
+
+  handlers:
+    - name: upload loopback
+      shell: "curl -T {{ output }}/loopback.auto.rsc ftp://{{ user }}@{{ansible_host}}"
+

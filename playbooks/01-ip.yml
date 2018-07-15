@@ -4,11 +4,11 @@
   connection: local
   vars:
     user: admin
-    output: ./outputs/{{ inventory_hostname }}
+    output: ../outputs/{{ inventory_hostname }}
   tasks:
     - name: generate ip
       template:
-        src: ./templates/ip.auto.rsc.j2
+        src: ../templates/ip.auto.rsc.j2
         dest: "{{ output }}/ip.auto.rsc"
       notify: upload ip
 
