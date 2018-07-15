@@ -1,3 +1,4 @@
+
 /routing ospf instance
 {% for instance in ospf['vrf']['instances']%}
 add name={{ instance }} routing-table={{ instance }}
@@ -9,5 +10,9 @@ add instance={{ area['instance'] }} name={{ area['name'] }}
 {% endfor %}
 
 /routing ospf network
-add area=backbone comment="ANSIBLE IS AWESOME"
-add area=site-a
+{% for site in ospf['vrf']['networks']%}
+{% for network in site['networks'] %}
+add area={{ site['area'] }} network={{ network }}
+{% endfor %}
+{% endfor %}
+

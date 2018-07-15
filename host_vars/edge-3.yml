@@ -34,7 +34,7 @@ ospf:
     instances:
       - site-a
     areas:
-      - name: sitea-a-area
+      - name: site-a-area
         instance: site-a
     networks:
       - area: site-a-area
