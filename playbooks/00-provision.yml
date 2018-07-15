@@ -2,6 +2,8 @@
 - hosts: all
   gather_facts: no
   connection: local
+  vars:
+    output: ../outputs/{{ inventory_hostname }}
   tasks:
     - name: create output template directories
       file:
