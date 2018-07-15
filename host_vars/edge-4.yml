@@ -1,8 +1,6 @@
 ---
 
 ip:
-  - name: loop0
-    address: 2.0.0.2/32
   - name: ether2
     address: 10.24.0.4/24
   - name: ether3
