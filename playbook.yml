@@ -1,6 +1,10 @@
 ---
 - hosts: all
   gather_facts: no
+  connection: local
+  vars:
+    user: admin
+    output: ./outputs/{{ inventory_hostname }}
   tasks:
     - name: Connectivity check
       connection: local
