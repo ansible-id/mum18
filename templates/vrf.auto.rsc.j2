@@ -1,8 +1,8 @@
 /ip route vrf
 
 {% for v in vrf %}
-add export-route-targets={{ v['export'] | join(',') }} \
-import-route-targets={{ v['import'] | join(',') }} \
+add export-route-targets={{ v['exports'] | join(',') }} \
+import-route-targets={{ v['imports'] | join(',') }} \
 interfaces={{ v['interfaces'] | join(',') }} \
 route-distinguisher={{ v['rd'] }} routing-mark={{ v['name'] }}
 {% endfor %}

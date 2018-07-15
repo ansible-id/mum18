@@ -18,7 +18,6 @@ bgp:
       asn: 65500
       af:
         - vpnv4
-        - ip
   vrf:
     - name: site-a
       redists:
