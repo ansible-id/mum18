@@ -1,0 +1,18 @@
+---
+- hosts: edge
+  gather_facts: no
+  connection: local
+  vars:
+    user: admin
+    output: ../outputs/{{ inventory_hostname }}
+  tasks:
+    - name: generate ospf vrf
+      template:
+        src: ../templates/ospf-vrf.auto.rsc.j2
+        dest: "{{ output }}/ospf-vrf.auto.rsc"
+      notify: upload ospf vrf
+
+  handlers:
+    - name: upload ospf vrf
+      shell: "curl -T {{ output }}/ospf-vrf.auto.rsc ftp://{{ user }}@{{ansible_host}}"
+

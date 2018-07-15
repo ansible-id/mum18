@@ -5,8 +5,8 @@ ospf:
     - id: backbone
       networks:
         - 0.0.0.0/0
-      passives:
-        - ether1
+  passives:
+    - ether1
 
 mpls:
   ldp:
