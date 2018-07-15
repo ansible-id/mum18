@@ -1,6 +1,8 @@
 ---
 
 ip:
+  - name: loopback
+    address: 2.2.2.2/32
   - name: ether2
     address: 10.24.0.2/24
   - name: ether3
