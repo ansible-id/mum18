@@ -5,7 +5,7 @@ MUM Indonesia 2018
 
 TODOS
 -----
-- [  ] Lotsa todos
+- [ ] Lotsa todos
 
 LICENSE
 -------
