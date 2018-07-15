@@ -19,3 +19,13 @@ bgp:
       af:
         - vpnv4
 
+vrf:
+  - name: site-a
+    rd: 3.3.3.3:1
+    export:
+      - 3.3.3.3:1
+    import:
+      - 4.4.4.4:1
+    interfaces:
+      - ether4
+
