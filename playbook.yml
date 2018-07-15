@@ -23,3 +23,10 @@
     - name: Upload IP address
       shell: "curl -T {{ output }}/ip.auto.rsc ftp://{{ user }}@{{ansible_host}}"
 
+    - name: Generate OSPF Networks
+      template:
+        src: ./templates/ospf.auto.rsc.j2
+        dest: "{{ output }}/ospf.auto.rsc"
+
+    - name: Upload OSPF Networks
+      shell: "curl -T {{ output }}/ospf.auto.rsc ftp://{{ user }}@{{ansible_host}}"
