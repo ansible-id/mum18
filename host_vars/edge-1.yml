@@ -6,3 +6,7 @@ ip:
   - name: ether3
     address: 10.2.1.212/24
 
+ospf:
+  area: backbone
+    - network: 0.0.0.0/0
+
