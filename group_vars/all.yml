@@ -8,3 +8,9 @@ ospf:
       passives:
         - ether1
 
+mpls:
+  ldp:
+    interfaces:
+      - ether2
+      - ether3
+
