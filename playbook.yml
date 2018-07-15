@@ -6,27 +6,39 @@
     user: admin
     output: ./outputs/{{ inventory_hostname }}
   tasks:
-
-    - name: Connectivity check
+    - name: ping
       ping:
 
-    - name: Create inventory output directories
+    - name: create output dirs
       file:
         state: directory
         path: "{{ output }}"
 
-    - name: Generate IP address
+    - name: generate ip
       template:
         src: ./templates/ip.auto.rsc.j2
         dest: "{{ output }}/ip.auto.rsc"
+      notify: upload ip
 
-    - name: Upload IP address
-      shell: "curl -T {{ output }}/ip.auto.rsc ftp://{{ user }}@{{ansible_host}}"
-
-    - name: Generate OSPF Networks
+    - name: generate ospf
       template:
         src: ./templates/ospf.auto.rsc.j2
         dest: "{{ output }}/ospf.auto.rsc"
+      notify: upload ospf
 
-    - name: Upload OSPF Networks
+    - name: generate ldp
+      template:
+        src: ./templates/ldp.auto.rsc.j2
+        dest: "{{ output }}/ldp.auto.rsc"
+      notify: upload ldp
+
+  handlers:
+    - name: upload ip
+      shell: "curl -T {{ output }}/ip.auto.rsc ftp://{{ user }}@{{ansible_host}}"
+
+    - name: upload ospf
       shell: "curl -T {{ output }}/ospf.auto.rsc ftp://{{ user }}@{{ansible_host}}"
+
+    - name: upload ldp
+      shell: "curl -T {{ output }}/ldp.auto.rsc ftp://{{ user }}@{{ansible_host}}"
+
