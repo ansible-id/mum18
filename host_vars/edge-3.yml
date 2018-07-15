@@ -21,8 +21,8 @@ bgp:
   vrf:
     - name: site-a
       redists:
-        ospf: yes
-        connected: yes
+        ospf: 'yes'
+        connected: 'yes'
 
 vrf:
   - name: site-a
