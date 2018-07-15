@@ -6,7 +6,20 @@
     user: admin
     output: ./outputs/{{ inventory_hostname }}
   tasks:
+
     - name: Connectivity check
-      connection: local
       ping:
+
+    - name: Create inventory output directories
+      file:
+        state: directory
+        path: "{{ output }}"
+
+    - name: Generate IP address
+      template:
+        src: ./templates/ip.auto.rsc.j2
+        dest: "{{ output }}/ip.auto.rsc"
+
+    - name: Upload IP address
+      shell: "curl -T {{ output }}/ip.auto.rsc ftp://{{ user }}@{{ansible_host}}"
 
