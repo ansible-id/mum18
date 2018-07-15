@@ -10,7 +10,7 @@
       template:
         src: ../templates/vrf.auto.rsc.j2
         dest: "{{ output }}/vrf.auto.rsc"
-      # notify: upload vrf
+      notify: upload vrf
 
   handlers:
     - name: upload vrf
