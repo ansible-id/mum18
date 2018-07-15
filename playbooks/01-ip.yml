@@ -1,0 +1,18 @@
+---
+- hosts: all
+  gather_facts: no
+  connection: local
+  vars:
+    user: admin
+    output: ./outputs/{{ inventory_hostname }}
+  tasks:
+    - name: generate ip
+      template:
+        src: ./templates/ip.auto.rsc.j2
+        dest: "{{ output }}/ip.auto.rsc"
+      notify: upload ip
+
+  handlers:
+    - name: upload ip
+      shell: "curl -T {{ output }}/ip.auto.rsc ftp://{{ user }}@{{ansible_host}}"
+

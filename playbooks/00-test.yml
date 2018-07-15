@@ -1,0 +1,12 @@
+---
+- hosts: all
+  gather_facts: no
+  connection: local
+  tasks:
+    - name: ping test
+      ping:
+
+    - name: host_vars
+      debug:
+        var: "{{ hostvars[inventory_hostname] }}"
+

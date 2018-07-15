@@ -1,0 +1,18 @@
+---
+- hosts: all
+  gather_facts: no
+  connection: local
+  vars:
+    user: admin
+    output: ./outputs/{{ inventory_hostname }}
+  tasks:
+    - name: generate ldp
+      template:
+        src: ./templates/ldp.auto.rsc.j2
+        dest: "{{ output }}/ldp.auto.rsc"
+      notify: upload ldp
+
+  handlers:
+    - name: upload ldp
+      shell: "curl -T {{ output }}/ldp.auto.rsc ftp://{{ user }}@{{ansible_host}}"
+
