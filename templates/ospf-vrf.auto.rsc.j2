@@ -1,7 +1,11 @@
 
 /routing ospf instance
 {% for instance in ospf['vrf']['instances']%}
-add name={{ instance }} routing-table={{ instance }}
+add name={{ instance['name'] }} routing-table={{ instance['name'] }}
+
+{% for protocol, value in instance['redists'].items() %}
+set {{ instance['name'] }} redistribute-{{ protocol }}={{ value }}
+{% endfor %}
 {% endfor %}
 
 /routing ospf area
