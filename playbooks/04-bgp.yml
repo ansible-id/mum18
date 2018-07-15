@@ -10,6 +10,7 @@
       template:
         src: ../templates/bgp.auto.rsc.j2
         dest: "{{ output }}/bgp.auto.rsc"
+      notify: upload bgp
 
   handlers:
     - name: upload bgp
