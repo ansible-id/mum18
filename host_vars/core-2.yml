@@ -1,0 +1,8 @@
+---
+
+ip:
+  - name: ether2
+    address: 10.2.2.221/24
+  - name: ether3
+    address: 10.2.1.211/24
+
