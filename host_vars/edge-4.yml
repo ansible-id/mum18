@@ -23,9 +23,9 @@ bgp:
 vrf:
   - name: site-a
     rd: 4.4.4.4:1
-    exports:
+    export:
       - 4.4.4.4:1
-    imports:
+    import:
       - 3.3.3.3:1
     interfaces:
       - ether4
