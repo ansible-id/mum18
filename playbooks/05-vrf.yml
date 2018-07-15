@@ -1,0 +1,18 @@
+---
+- hosts: edge
+  gather_facts: no
+  connection: local
+  vars:
+    user: admin
+    output: ../outputs/{{ inventory_hostname }}
+  tasks:
+    - name: generate vrf
+      template:
+        src: ../templates/vrf.auto.rsc.j2
+        dest: "{{ output }}/vrf.auto.rsc"
+      # notify: upload vrf
+
+  handlers:
+    - name: upload vrf
+      shell: "curl -T {{ output }}/vrf.auto.rsc ftp://{{ user }}@{{ansible_host}}"
+
