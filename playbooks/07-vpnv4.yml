@@ -1,0 +1,18 @@
+---
+- hosts: edge
+  gather_facts: no
+  connection: local
+  vars:
+    user: admin
+    output: ../outputs/{{ inventory_hostname }}
+  tasks:
+    - name: generate vpnv4
+      template:
+        src: ../templates/vpnv4.auto.rsc.j2
+        dest: "{{ output }}/vpnv4.auto.rsc"
+      notify: upload vpnv4
+
+  handlers:
+    - name: upload vpnv4
+      shell: "curl -T {{ output }}/vpnv4.auto.rsc ftp://{{ user }}@{{ansible_host}}"
+
