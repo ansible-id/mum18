@@ -22,10 +22,22 @@ bgp:
 vrf:
   - name: site-a
     rd: 3.3.3.3:1
-    export:
+    exports:
       - 3.3.3.3:1
-    import:
+    imports:
       - 4.4.4.4:1
     interfaces:
       - ether4
+
+ospf:
+  vrf:
+    instances:
+      - site-a
+    areas:
+      - name: sitea-a-area
+        instance: site-a
+    networks:
+      - area: site-a-area
+        networks:
+          - 0.0.0.0/0
 
