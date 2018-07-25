@@ -1,7 +1,7 @@
 MUM Indonesia 2018
 ==================
 
-@rshier repository for MUM ID 2018.
+Repository for MUM ID 2018.
 Slide https://slides.com/ansible-id/mum18 
 
 Requirements
