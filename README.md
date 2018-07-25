@@ -4,12 +4,15 @@ MUM Indonesia 2018
 @rshier repository for MUM ID 2018.
 Slide https://slides.com/ansible-id/mum18 
 
-Setup
+Requirements
 -----
+- RouterOS
 - Python 3
 - Ansible
 - Python ISC DHCP Lease Package
 
+Setup
+-----
 1. Ansible Package
 ```
 pip install ansible
