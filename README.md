@@ -2,10 +2,27 @@ MUM Indonesia 2018
 ==================
 
 @rshier repository for MUM ID 2018.
+Slide https://slides.com/ansible-id/mum18 
 
-TODOS
+Setup
 -----
-- [ ] Lotsa todos
+- Python 3
+- Ansible
+- Python ISC DHCP Lease Package
+
+1. Ansible Package
+```
+pip install ansible
+```
+
+2. Python ISC DHCP Lease Package
+```
+pip install isc_dhcp_leases
+```
+
+Diagram
+-------
+![diagram](https://s3.amazonaws.com/media-p.slid.es/uploads/906616/images/5116273/mpls.svg)
 
 LICENSE
 -------
